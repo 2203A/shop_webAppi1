@@ -1,12 +1,9 @@
 package initialize
 
 import (
-	"SX1/shop_api/api/cmd/global"
-	UserPDA "SX1/shop_api/api/initnal/proto/user"
-	"SX1/shop_api/api/initnal/router"
+	"SX1/shop_webAppi/userserve/cmd/global"
 	"encoding/json"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 	"github.com/nacos-group/nacos-sdk-go/v2/clients"
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
@@ -15,7 +12,6 @@ import (
 	"github.com/smartwalle/alipay/v3"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
-	"google.golang.org/grpc"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -25,14 +21,12 @@ func init() {
 	InitAppConfig()
 	//初始化zap日志
 	InitZap()
-	//初始化路由组
-	InitRouter()
 	//初始化连接mysql
 	InitMysql()
 	//初始化支付宝客户端
 	InitAlipay()
 	//初始化连接用户服务
-	InitUserServe()
+	//InitUserServe()
 	//初始化Redis
 	InitRedis()
 	//初始化Elasticsearch
@@ -43,24 +37,16 @@ func init() {
 
 //初始化连接用户服务
 
-func InitUserServe() {
-	// 1.连接
-	conn, err := grpc.Dial("127.0.0.1:8081", grpc.WithInsecure())
-	if err != nil {
-		fmt.Printf("连接异常： %s\n", err)
-	}
-	// 2. 实例化gRPC客户端
-	global.UserClient = UserPDA.NewUserClient(conn)
-	fmt.Println("init user success")
-}
-
-//初始化路由组
-
-func InitRouter() {
-	g := gin.Default()
-	router.Router(g)
-	global.Router = g
-}
+//func InitUserServe() {
+//	// 1.连接
+//	conn, err := grpc.Dial("127.0.0.1:8081", grpc.WithInsecure())
+//	if err != nil {
+//		fmt.Printf("连接异常： %s\n", err)
+//	}
+//	// 2. 实例化gRPC客户端
+//	global.UserClient = UserPDA.NewUserClient(conn)
+//	fmt.Println("init user success")
+//}
 
 //初始化zap日志
 
@@ -76,7 +62,8 @@ func InitZap() {
 //初始化appconfig配置文件
 
 func InitAppConfig() {
-	viper.SetConfigFile("D:\\MyGo\\src\\SX1\\shop_webAppi\\api\\cmd\\appconfig.yaml")
+	fmt.Println("执行到appconfig")
+	viper.SetConfigFile("D:\\MyGo\\src\\SX1\\shop_webAppi\\userserve\\cmd\\appconfig.yaml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		fmt.Println("read viper err", err)

@@ -1,0 +1,2 @@
+2024-11-14T10:35:14.059+0800	INFO	initialize/init.go:128	init mysql success
+2024-11-14T10:35:20.123+0800	INFO	initialize/init.go:170	init elasticsearchClient errHead "http://118.89.80.34:9200": context deadline exceeded
