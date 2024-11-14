@@ -2,6 +2,7 @@ package global
 
 import (
 	"SX1/shop_api/api/cmd/appconfig"
+	UserPDA "SX1/shop_api/api/initnal/proto/user"
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis"
 	"github.com/olivere/elastic/v7"
@@ -17,4 +18,5 @@ var (
 	DB            *gorm.DB
 	RedisClient   *redis.Client
 	ElasticClient *elastic.Client
+	UserClient    UserPDA.UserClient
 )
