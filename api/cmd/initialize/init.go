@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"SX1/shop_api/api/cmd/global"
-	"SX1/shop_api/api/router"
+	"SX1/shop_api/api/initnal/router"
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -74,7 +74,7 @@ func InitZap() {
 //初始化appconfig配置文件
 
 func InitAppConfig() {
-	viper.SetConfigFile("D:\\MyGo\\src\\SX1\\shop_api\\api\\cmd\\appconfig.yaml")
+	viper.SetConfigFile("D:\\MyGo\\src\\SX1\\shop_webAppi\\api\\cmd\\appconfig.yaml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		fmt.Println("read viper err", err)
