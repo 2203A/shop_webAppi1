@@ -1,0 +1,7 @@
+address : 5ae01a4a-b833-43e4-a0fd-57c372442648
+host    : 121.36.211.57
+port    : 8848
+user    : nacos
+pass    : admin
+dataId  : ScyUserApi
+group   : dev
