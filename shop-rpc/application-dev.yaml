@@ -1,0 +1,25 @@
+server:
+  name: userServer
+  host: 127.0.0.1
+  port: 8888
+  tags: [ "userServer", "userSrv" ]
+
+
+log:
+  logPath: /Users/fuyx/GolandProjects/zg4ProjectServer/myproject.log
+
+MysqlMaster:
+  host: 47.116.205.250
+  port: 3308
+  user: root
+  password: admin123456
+  dbName: demoProject
+
+Consul:
+  host: 121.36.211.57
+  port: 8500
+
+
+
+
+

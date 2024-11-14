@@ -1,0 +1,42 @@
+// 声明 proto 语法版本，固定值
+syntax = "proto3";
+
+// proto 包名
+package user;
+
+// 生成 golang 代码后的包名
+option go_package = "./UserSrv";
+
+// 定义用户注册并且登录的请求体请求体
+message UserRegisterReq {
+  string mobile=1;
+  string password=2;
+}
+// 定义响应体
+message  UserRegisterRes{
+  int64 id=1;
+}
+
+
+// 定义用户地址添加请求体请求体
+message UserAddressAddReq {
+  int64  userId=1;
+  string consigneeName=2;
+  string consigneePhone=3;
+  string province=4;
+  string city=5;
+  string county=6;
+  string detailed=7;
+  int64 isDefault=8;
+}
+// 定义响应体
+message  UserAddressAddRes{
+  int64 id=1;
+}
+
+// 定义 Greet 服务
+service User {
+  // 定义一个 userRegister 一元 rpc 方法，请求体和响应体必填。
+  rpc UserRegister(UserRegisterReq) returns (UserRegisterRes);//用户注册登录接口
+  rpc UserAddressAdd(UserAddressAddReq) returns (UserAddressAddRes);//用户地址添加接口
+}

@@ -1,0 +1,9 @@
+NamespaceId: 5ae01a4a-b833-43e4-a0fd-57c372442648
+IpAddr: 121.36.211.57
+Port: 8848
+Username: nacos
+Password: admin
+DataId: userApi
+Group: dev
+
+
